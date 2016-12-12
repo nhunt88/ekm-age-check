@@ -1,0 +1,123 @@
+.user-dummy {
+  display: none;
+}
+
+/* Main modal CSS there are some dependecies used by
+the mobile version, so be careful making changes */
+
+.acmodal {
+  position: fixed;
+  z-index: 9999;
+  padding-top: 10%;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgb(0,0,0);
+  background-color: rgba(0,0,0,0.8);
+}
+
+.acmodal-content {
+  position: relative;
+  background-color: #ffffff;
+  margin: auto;
+  padding: 0;
+  width: 30%;
+  color: #646464;
+  min-width: 520px;
+}
+
+.acmodal-header {
+  padding: 20px;
+  border-bottom: 1px solid #646464;
+  font-size: 30px;
+  text-align:center;
+}
+
+.acmodal-body {
+  padding: 20px;
+  border-bottom: 1px solid #646464;
+  font-size: 14px;
+  text-align: center;
+}
+
+.acmodal-footer {
+  padding: 10px 20px;
+}
+
+.ac-btn {
+  padding: 5px 10px;
+  text-align: center;
+  width: 10%;
+  display: inline-block;
+  font-size: 18px;
+  cursor: pointer;
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.acyes-btn {
+  background-color: #017cc2;
+  border: 1px solid #017cc2;
+}
+
+.acno-btn {
+  background-color: #ec1e1e;
+  border: 1px solid #ec1e1e;
+  float: right;
+}
+
+.ac-btn:hover {
+  background-color: #ffffff;
+  font-weight: bold;
+}
+
+.acyes-btn:hover {
+  color: #017cc2;
+}
+
+.acno-btn:hover {
+  color: #ec1e1e;
+  text-decoration: none;
+}
+
+/* #################### Mobile CSS #################### */
+.acmodal-mob {
+  padding: 0;
+}
+
+.acmodal-content-mob {
+  width: 100%;
+  min-width: 0;
+}
+
+.acmodal-header-mob {
+  padding: 15px;
+}
+
+.acmodal-body-mob {
+  padding: 10px;
+}
+
+.acmodal-footer-mob {
+  padding: 10px;
+}
+
+.ac-btn-mob {
+  padding: 5px 10px;
+  text-align: center;
+  width: 80%;
+  margin: auto;
+  display: block;
+  font-size: 18px;
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.acno-btn-mob {
+  background-color: #ec1e1e;
+}
+
+.acyes-btn-mob {
+  background-color: #017cc2;
+}
