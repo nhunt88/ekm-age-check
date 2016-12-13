@@ -52,7 +52,7 @@
   }
 
   function ageCheckDisplayedCheck() {
-    acModal.style.display = !isAgeCheckDisplayed() ? "block" : "none";
+    acModal.style.display = isAgeCheckDisplayed() ? "none" : "block";
   }
 
   acYesBtn.onclick = function() {
