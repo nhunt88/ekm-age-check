@@ -5,7 +5,7 @@
 /* Main modal CSS there are rules inherited by 
 the mobile version, so be careful making changes */
 
-.acmodal {
+.ekm-age-check-modal {
   position: fixed;
   z-index: 9999;
   padding-top: 10%;
@@ -17,7 +17,7 @@ the mobile version, so be careful making changes */
   background-color: rgba(0,0,0,0.8);
 }
 
-.acmodal-content {
+.ekm-age-check-modal-content {
   position: relative;
   background-color: #ffffff;
   margin: auto;
@@ -27,25 +27,25 @@ the mobile version, so be careful making changes */
   min-width: 520px;
 }
 
-.acmodal-header {
+.ekm-age-check-modal-header {
   padding: 20px;
   border-bottom: 1px solid #646464;
   font-size: 30px;
   text-align:center;
 }
 
-.acmodal-body {
+.ekm-age-check-modal-body {
   padding: 20px;
   border-bottom: 1px solid #646464;
   font-size: 14px;
   text-align: center;
 }
 
-.acmodal-footer {
+.ekm-age-check-modal-footer {
   padding: 10px 20px;
 }
 
-.ac-btn {
+.ekm-age-check-btn {
   padding: 5px 10px;
   text-align: center;
   width: 10%;
@@ -56,54 +56,54 @@ the mobile version, so be careful making changes */
   text-decoration: none;
 }
 
-.acyes-btn {
+.ekm-age-check-yes-btn {
   background-color: #017cc2;
   border: 1px solid #017cc2;
 }
 
-.acno-btn {
+.ekm-age-check-no-btn {
   background-color: #ec1e1e;
   border: 1px solid #ec1e1e;
   float: right;
 }
 
-.ac-btn:hover {
+.ekm-age-check-btn:hover {
   background-color: #ffffff;
   font-weight: bold;
 }
 
-.acyes-btn:hover {
+.ekm-age-check-yes-btn:hover {
   color: #017cc2;
 }
 
-.acno-btn:hover {
+.ekm-age-check-no-btn:hover {
   color: #ec1e1e;
   text-decoration: none;
 }
 
 /* #################### Mobile CSS #################### */
-.acmodal-mob {
+.ekm-age-check-modal-mob {
   padding: 0;
 }
 
-.acmodal-content-mob {
+.ekm-age-check-modal-content-mob {
   width: 100%;
   min-width: 0;
 }
 
-.acmodal-header-mob {
+.ekm-age-check-modal-header-mob {
   padding: 15px;
 }
 
-.acmodal-body-mob {
+.ekm-age-check-modal-body-mob {
   padding: 10px;
 }
 
-.acmodal-footer-mob {
+.ekm-age-check-modal-footer-mob {
   padding: 10px;
 }
 
-.ac-btn-mob {
+.ekm-age-check-btn-mob {
   padding: 5px 10px;
   text-align: center;
   width: 80%;
@@ -114,10 +114,10 @@ the mobile version, so be careful making changes */
   text-decoration: none;
 }
 
-.acno-btn-mob {
+.ekm-age-check-no-btn-mob {
   background-color: #ec1e1e;
 }
 
-.acyes-btn-mob {
+.ekm-age-check-yes-btn-mob {
   background-color: #017cc2;
 }
