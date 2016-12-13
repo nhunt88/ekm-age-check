@@ -9,10 +9,28 @@
   //Constant for Expiry date in days
   var ageCheckDisplayedExpiryDays = 28;
 
+  // Default options
+  var defaultOptions = {
+    colours: {
+
+    }
+  };
+
   //Element references
   var acModal = document.getElementById('acModal');
   var acYesBtn = document.getElementById('acYesBtn');
   var acNoBtn = document.getElementById('acNoBtn');
+
+  function mergeObjects() {
+    var args = Array.prototype.slice.call(arguments);
+    var mergedObj = {};
+    for(var arg in args) {
+      for(var propName in arg) {
+        mergedObj[propName] = arg[propName];
+      }
+    }
+    return mergedObj;
+  }
 
   //Create Cookie
   function CreateCookie(name,value,days) {
@@ -51,7 +69,9 @@
     acModal.style.display = 'none';
   }
 
-  function ageCheckDisplayedCheck() {
+  function ageCheckDisplayedCheck(options) {
+    var opts = mergeObjects({}, defaultOptions, options);
+    // opts.colours = the colours;
     acModal.style.display = isAgeCheckDisplayed() ? "none" : "block";
   }
 
@@ -63,5 +83,7 @@
     location.href = "http://www.google.co.uk";
   }
 
-  ageCheckDisplayedCheck()
+  window.ekmAgeCheck = {
+    runAgeCheck: ageCheckDisplayedCheck
+  };
 })();
