@@ -3,10 +3,8 @@
   //Find site username
   var ageCheckUser = document.getElementById("ageCheckUser").innerHTML;
 
-  //LocalStorage key constants
+  //Cookie key constants
   var ageCheckDisplayedKey = "ageCheckDisplayed"+ageCheckUser;
-  var ageCheckDisplayedExpiryDateKey = "ageCheckDisplayedExpiryDate"+ageCheckUser;
-
 
   //Constant for Expiry date in days
   var ageCheckDisplayedExpiryDays = 28;
@@ -16,49 +14,45 @@
   var acYesBtn = document.getElementById('acYesBtn');
   var acNoBtn = document.getElementById('acNoBtn');
 
+  //Create Cookie
+  function acCreateCookie(name,value,days) {
+    var date= new Date();
+    date.setDate(date.getDate()+days);
+    var expires = "; expires="+date+"; path=/";
+
+    document.cookie = name+"="+value+expires;
+  }
+
+  //Read Cookie
+  function acReadCookie(name) {
+    var nameEquals = name + "=";
+    var ca = document.cookie.split(';');
+
+    for(var i=0; i < ca.length; i++) {
+      var c = ca[i];
+      while (c.charAt(0)==' ') c = c.substring(1,c.length);
+      if (c.indexOf(nameEquals) == 0) return c.substring(nameEquals.length,c.length);
+    }
+    return null;
+  }
+
   function isAgeCheckDisplayed() {
-    return localStorage.getItem(ageCheckDisplayedKey) != null;
+    return acReadCookie(ageCheckDisplayedKey) != null;
   }
 
   function setAgeCheckDisplayed(val) {
     var isDisplayed = val == null ? true : val;
-    localStorage.setItem(ageCheckDisplayedKey, isDisplayed);
+    acCreateCookie(ageCheckDisplayedKey, isDisplayed, ageCheckDisplayedExpiryDays);
   }
 
-  function getAgeCheckDisplayExpiryDate() {
-    var datestring = localStorage.getItem(ageCheckDisplayedExpiryDateKey);
-    return new Date(datestring);
-  }
-
-  function getAgeCheckExpiryDate(days) {
-    var now = new Date();
-    var expiryDate = new Date();
-    expiryDate.setDate(now.getDate() + days);
-    return expiryDate;
-  }
-
-  function setAgeCheckDisplayedExpiryDate(days)  {
-    var expiryDays = days == null ? ageCheckDisplayedExpiryDays : days;
-    var expiryDate = getAgeCheckExpiryDate(expiryDays);
-    localStorage.setItem(ageCheckDisplayedExpiryDateKey, expiryDate);
-  }
 
   function setDisplayed() {
     setAgeCheckDisplayed();
-    setAgeCheckDisplayedExpiryDate();
     acModal.style.display = 'none';
   }
 
-  function hasAgeCheckDisplayExpired() {
-    var now = new Date();
-    return getAgeCheckDisplayExpiryDate() <= now;
-  }
-
   function ageCheckDisplayedCheck() {
-    acModal.style.display = !isAgeCheckDisplayed() || hasAgeCheckDisplayExpired() ? "block" : "none";
-      if(isAgeCheckDisplayed() && hasAgeCheckDisplayExpired()) {
-        setAgeCheckDisplayed(null);
-      }
+    acModal.style.display = !isAgeCheckDisplayed() ? "block" : "none";
   }
 
   acYesBtn.onclick = function() {
