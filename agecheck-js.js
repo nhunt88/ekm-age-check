@@ -15,7 +15,7 @@
   var acNoBtn = document.getElementById('acNoBtn');
 
   //Create Cookie
-  function acCreateCookie(name,value,days) {
+  function CreateCookie(name,value,days) {
     var date= new Date();
     date.setDate(date.getDate()+days);
     var expires = "; expires="+date+"; path=/";
@@ -24,7 +24,7 @@
   }
 
   //Read Cookie
-  function acReadCookie(name) {
+  function ReadCookie(name) {
     var nameEquals = name + "=";
     var ca = document.cookie.split(';');
 
@@ -37,12 +37,12 @@
   }
 
   function isAgeCheckDisplayed() {
-    return acReadCookie(ageCheckDisplayedKey) != null;
+    return ReadCookie(ageCheckDisplayedKey) != null;
   }
 
   function setAgeCheckDisplayed(val) {
     var isDisplayed = val == null ? true : val;
-    acCreateCookie(ageCheckDisplayedKey, isDisplayed, ageCheckDisplayedExpiryDays);
+    CreateCookie(ageCheckDisplayedKey, isDisplayed, ageCheckDisplayedExpiryDays);
   }
 
 
