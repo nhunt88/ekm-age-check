@@ -5,9 +5,7 @@ Tests whether or not the modal has been displayed previously, within the last 28
 
 var ageCheckDisplayedExpiryDays = 28;
 
-Changing the number will change the number of days between checks, I would advise not setting this below 1, i.e DO NOT set it to 0 or a negative value.
-
-loalStorage values use the site username, so this can be run on multiple sites.
+Uses cookies to for the check, with the site username appended to keep it usable across multiple sites.
 
 #Installation
   1. Drag and drop agecheck-js.css and agecheck-js.css into the file manager
