@@ -7,14 +7,46 @@
 <div class="ekm-age-check-modal ekm-age-check-modal-mob" id="acModal">
   <div class="ekm-age-check-modal-content ekm-age-check-modal-content-mob" id="acModalContent">
     <div class="ekm-age-check-modal-header ekm-age-check-modal-header-mob">
-        Welcome to [ekm:sitename][/ekm:sitename]
+      [ekm:element]
+        element_reference='age-check-header';
+        edit_button='YES';
+        output_start='';
+        output_end='';
+        element_name_default='';
+        output_default='Welcome to [ekm:sitename][/ekm:sitename]';
+      [/ekm:element]
     </div>
     <div class="ekm-age-check-modal-body ekm-age-check-modal-body-mob" id="acModalBody">
-        To view or make purchases on our site you need to be over 18 years old. If you are over 18 click "Yes" to continue, otherwise please click "No".
+      [ekm:element]
+        element_reference='age-check-main-text';
+        edit_button='YES';
+        output_start='';
+        output_end='';
+        element_name_default='';
+        output_default='To view or make purchases on our site you need to be over 18 years old. If you are over 18 click "Yes" to continue, otherwise please click "No".';
+      [/ekm:element]
     </div>
     <div class="ekm-age-check-modal-footer ekm-age-check-modal-footer-mob">
-      <div class="ekm-age-check-yes-btn-mob ekm-age-check-btn-mob" id="acYesBtn">Yes</div>
-      <div class="ekm-age-check-no-btn-mob ekm-age-check-btn-mob" id="acNoBtn">No</div>
+      <div class="ekm-age-check-yes-btn-mob ekm-age-check-btn-mob" id="acYesBtn">
+        [ekm:element]
+          element_reference='age-check-yes-btn';
+          edit_button='YES';
+          output_start='';
+          output_end='';
+          element_name_default='';
+          output_default='Yes';
+        [/ekm:element]
+      </div>
+      <div class="ekm-age-check-no-btn-mob ekm-age-check-btn-mob" id="acNoBtn">
+        [ekm:element]
+          element_reference='age-check-no-btn';
+          edit_button='YES';
+          output_start='';
+          output_end='';
+          element_name_default='';
+          output_default='No';
+        [/ekm:element]
+      </div>
     </div>
   </div>
 </div>
