@@ -9,12 +9,6 @@
   //Constant for Expiry date in days
   var ageCheckDisplayedExpiryDays = 28;
 
-  // Default options
-  var defaultOptions = {
-    colours: {
-
-    }
-  };
 
   //Element references
   var acModal = document.getElementById('acModal');
@@ -55,6 +49,7 @@
   function setAgeCheckDisplayed(val) {
     var isDisplayed = val == null ? true : val;
     CreateCookie(ageCheckDisplayedKey, isDisplayed, ageCheckDisplayedExpiryDays);
+    console.log(ageCheckDisplayedExpiryDays);
   }
 
 
@@ -64,12 +59,13 @@
   }
 
   function ageCheckDisplayedCheck(options) {
+
     //Colour references
-    var mainBackgroundColour = options.colours.mainBackgroundColour;
-    var mainTextColour = options.colours.mainTextColour;
-    var btnTextColour = options.colours.btnTextColour;
-    var btnYesColour = options.colours.btnYesColour;
-    var btnNoColour = options.colours.btnNoColour;
+    var mainBackgroundColour = options.settings.mainBackgroundColour;
+    var mainTextColour = options.settings.mainTextColour;
+    var btnTextColour = options.settings.btnTextColour;
+    var btnYesColour = options.settings.btnYesColour;
+    var btnNoColour = options.settings.btnNoColour;
 
     acModalContent.style.backgroundColor = mainBackgroundColour;
     acModalContent.style.color = mainTextColour;
