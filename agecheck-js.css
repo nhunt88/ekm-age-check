@@ -2,7 +2,7 @@
   display: none;
 }
 
-/* Main modal CSS there are rules inherited by 
+/* Main modal CSS there are rules inherited by
 the mobile version, so be careful making changes */
 
 .ekm-age-check-modal {
@@ -29,14 +29,15 @@ the mobile version, so be careful making changes */
 
 .ekm-age-check-modal-header {
   padding: 20px;
-  border-bottom: 1px solid #646464;
   font-size: 30px;
   text-align:center;
 }
 
 .ekm-age-check-modal-body {
   padding: 20px;
-  border-bottom: 1px solid #646464;
+  border-color: #646464;
+  border-style: solid;
+  border-width: 1px 0 1px 0;
   font-size: 14px;
   text-align: center;
 }
@@ -73,11 +74,11 @@ the mobile version, so be careful making changes */
 }
 
 .ekm-age-check-yes-btn:hover {
-  color: #017cc2;
+  color: #ec1e1e;
 }
 
 .ekm-age-check-no-btn:hover {
-  color: #ec1e1e;
+  color: #017cc2;
   text-decoration: none;
 }
 
@@ -110,7 +111,7 @@ the mobile version, so be careful making changes */
   margin: auto;
   display: block;
   font-size: 18px;
-  color: #ffffff;
+  color:#ffffff;
   text-decoration: none;
 }
 
