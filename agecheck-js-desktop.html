@@ -7,53 +7,86 @@
 <div id="acModal" class="ekm-age-check-modal">
   <div class="ekm-age-check-modal-content" id="acModalContent">
     <div class="ekm-age-check-modal-header">
-        Welcome to [ekm:sitename][/ekm:sitename]
-    </div>
+      [ekm:element]
+        element_reference='age-check-header';
+        edit_button='YES';
+        output_start='';
+        output_end='';
+        element_name_default='';
+        output_default='Welcome to [ekm:sitename][/ekm:sitename]';
+      [/ekm:element]
+      </div>
     <div class="ekm-age-check-modal-body" id="acModalBody">
-        To view or make purchases on our site you need to be over 18 years old. If you are over 18 click "Yes" to continue, otherwise please click "No".
+        [ekm:element]
+          element_reference='age-check-main-text';
+          edit_button='YES';
+          output_start='';
+          output_end='';
+          element_name_default='';
+          output_default='To view or make purchases on our site you need to be over 18 years old. If you are over 18 click "Yes" to continue, otherwise please click "No".';
+        [/ekm:element]
     </div>
     <div class="ekm-age-check-modal-footer">
-      <div class="ekm-age-check-yes-btn ekm-age-check-btn" id="acYesBtn">Yes</div>
-      <div class="ekm-age-check-no-btn ekm-age-check-btn" id="acNoBtn">No</div>
+      <div class="ekm-age-check-yes-btn ekm-age-check-btn" id="acYesBtn">
+        [ekm:element]
+          element_reference='age-check-yes-btn';
+          edit_button='YES';
+          output_start='';
+          output_end='';
+          element_name_default='';
+          output_default='Yes';
+        [/ekm:element]
+      </div>
+      <div class="ekm-age-check-no-btn ekm-age-check-btn" id="acNoBtn">
+        [ekm:element]
+          element_reference='age-check-no-btn';
+          edit_button='YES';
+          output_start='';
+          output_end='';
+          element_name_default='';
+          output_default='No';
+        [/ekm:element]
+      </div>
     </div>
   </div>
 </div>
 
 <script src="/ekmps/shops/[ekm:siteusername][/ekm:siteusername]/resources/Other/agecheck-js.js" type="text/javascript"></script>
 <script type="text/javascript">
+  var ageCheckDisplayedExpiryDays = 28;
   if(window.ekmAgeCheck != null) {
     window.ekmAgeCheck.runAgeCheck({
-      colours: {
-       mainBackgroundColour:'[ekm:colour]
-							    colour_reference='age-check-background';
-							    colour_name='Age check background colour';
-							    colour_description='Defines the background colour for the pop-up';
-							    default_colour='#ffffff';
-							[/ekm:colour]',
-		mainTextColour:'[ekm:colour]
-						    colour_reference='age-check-text';
-						    colour_name='Age check text colour';
-						    colour_description='Defines the colour for the pop-up text';
-						    default_colour='#646464';
-						[/ekm:colour]',
-		btnTextColour:'[ekm:colour]
-						    colour_reference='age-check-button-text';
-						    colour_name='Age check yes button';
-						    colour_description='Defines the default text colour on te buttons, will reverse with the yes and no colours when hovering. Desktop only.';
-						    default_colour='#ffffff';
-						[/ekm:colour]',
-		btnYesColour:'[ekm:colour]
-						    colour_reference='age-check-yes';
-						    colour_name='Age check yes button';
-						    colour_description='Defines the colour for the yes button';
-						    default_colour='#017cc2';
-						[/ekm:colour]',
-		btnNoColour:'[ekm:colour]
-					    colour_reference='age-check-no';
-					    colour_name='Age check no button';
-					    colour_description='Defines the colour for the no button';
-					    default_colour='#ec1e1e';
-					[/ekm:colour]'
+    settings: {
+      mainBackgroundColour:'[ekm:colour]
+  							    colour_reference='age-check-background';
+  							    colour_name='Age check background colour';
+  							    colour_description='Defines the background colour for the pop-up';
+  							    default_colour='#ffffff';
+  							[/ekm:colour]',
+  		mainTextColour:'[ekm:colour]
+  						    colour_reference='age-check-text';
+  						    colour_name='Age check text colour';
+  						    colour_description='Defines the colour for the pop-up text';
+  						    default_colour='#646464';
+  						[/ekm:colour]',
+  		btnTextColour:'[ekm:colour]
+  						    colour_reference='age-check-button-text';
+  						    colour_name='Age check yes button';
+  						    colour_description='Defines the default text colour on te buttons, will reverse with the yes and no colours when hovering. Desktop only.';
+  						    default_colour='#ffffff';
+  						[/ekm:colour]',
+  		btnYesColour:'[ekm:colour]
+  						    colour_reference='age-check-yes';
+  						    colour_name='Age check yes button';
+  						    colour_description='Defines the colour for the yes button';
+  						    default_colour='#017cc2';
+  						[/ekm:colour]',
+  		btnNoColour:'[ekm:colour]
+  					    colour_reference='age-check-no';
+  					    colour_name='Age check no button';
+  					    colour_description='Defines the colour for the no button';
+  					    default_colour='#ec1e1e';
+  					[/ekm:colour]'
       }
     });
   }
