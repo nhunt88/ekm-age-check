@@ -1,6 +1,62 @@
 <!-- This goes in the head -->
 <link href='/ekmps/shops/[ekm:siteusername][/ekm:siteusername]/resources/Styles/agecheck-js.css' rel='stylesheet' type='text/css'>
 
+<!-- copy contents into the styles for the theme, make sure its
+    the main one and not the custom cart CSS -->
+<style>
+  .ekm-age-check-modal-content {
+    background-color: [ekm:colour]
+                          colour_reference='age-check-background';
+                          colour_name='Age check background colour';
+                          colour_description='Defines the background colour for the pop-up';
+                          default_colour='#ffffff';
+                      [/ekm:colour];
+    color: [ekm:colour]
+                colour_reference='age-check-text';
+                colour_name='Age check text colour';
+                colour_description='Defines the colour for the pop-up text';
+                default_colour='#646464';
+            [/ekm:colour];
+  }
+
+  .ekm-age-check-modal-body {
+    border-color: [ekm:colour]
+                      colour_reference='age-check-text';
+                      colour_name='Age check text colour';
+                      colour_description='Defines the colour for the pop-up text';
+                      default_colour='#646464';
+                  [/ekm:colour];
+  }
+
+
+  .ekm-age-check-btn-mob {
+      color:[ekm:colour]
+              colour_reference='age-check-button-text';
+              colour_name='Age check yes button';
+              colour_description='Defines the default text colour on te buttons, will reverse with the yes and no colours when hovering. Desktop only.';
+              default_colour='#ffffff';
+           [/ekm:colour];
+  }
+
+  .ekm-age-check-no-btn-mob {
+      background-color: [ekm:colour]
+                            colour_reference='age-check-no';
+                            colour_name='Age check no button';
+                            colour_description='Defines the colour for the no button';
+                            default_colour='#ec1e1e';
+                        [/ekm:colour];
+  }
+
+  .ekm-age-check-yes-btn-mob {
+    background-color: [ekm:colour]
+                          colour_reference='age-check-yes';
+                          colour_name='Age check yes button';
+                          colour_description='Defines the colour for the yes button';
+                          default_colour='#017cc2';
+                      [/ekm:colour];
+  }
+</style>
+
 <!-- insert after the opening <body> -->
 <div class="ekm-age-check-user-dummy" id="ageCheckUser">[ekm:siteusername][/ekm:siteusername]</div>
 
@@ -52,41 +108,3 @@
 </div>
 
 <script src="/ekmps/shops/[ekm:siteusername][/ekm:siteusername]/resources/Other/agecheck-js.js" type="text/javascript"></script>
-<script type="text/javascript">
-  if(window.ekmAgeCheck != null) {
-    window.ekmAgeCheck.runAgeCheck({
-    settings: {
-      mainBackgroundColour:'[ekm:colour]
-  							    colour_reference='age-check-background';
-  							    colour_name='Age check background colour';
-  							    colour_description='Defines the background colour for the pop-up';
-  							    default_colour='#ffffff';
-  							[/ekm:colour]',
-  		mainTextColour:'[ekm:colour]
-  						    colour_reference='age-check-text';
-  						    colour_name='Age check text colour';
-  						    colour_description='Defines the colour for the pop-up text';
-  						    default_colour='#646464';
-  						[/ekm:colour]',
-  		btnTextColour:'[ekm:colour]
-  						    colour_reference='age-check-button-text';
-  						    colour_name='Age check yes button';
-  						    colour_description='Defines the default text colour on te buttons, will reverse with the yes and no colours when hovering. Desktop only.';
-  						    default_colour='#ffffff';
-  						[/ekm:colour]',
-  		btnYesColour:'[ekm:colour]
-  						    colour_reference='age-check-yes';
-  						    colour_name='Age check yes button';
-  						    colour_description='Defines the colour for the yes button';
-  						    default_colour='#017cc2';
-  						[/ekm:colour]',
-  		btnNoColour:'[ekm:colour]
-  					    colour_reference='age-check-no';
-  					    colour_name='Age check no button';
-  					    colour_description='Defines the colour for the no button';
-  					    default_colour='#ec1e1e';
-  					[/ekm:colour]'
-      }
-    });
-  }
-</script>
