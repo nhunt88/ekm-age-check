@@ -6,6 +6,7 @@
 the mobile version, so be careful making changes */
 
 .ekm-age-check-modal {
+  display: none;
   position: fixed;
   z-index: 9999;
   padding-top: 10%;
