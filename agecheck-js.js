@@ -45,7 +45,6 @@
   function setAgeCheckDisplayed(val) {
     var isDisplayed = val == null ? true : val;
     CreateCookie(ageCheckDisplayedKey, isDisplayed, ageCheckDisplayedExpiryDays);
-    console.log(ageCheckDisplayedExpiryDays);
   }
 
 
