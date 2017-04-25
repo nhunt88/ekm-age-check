@@ -26,10 +26,14 @@
   }
 
   //Find site username
-  var ageCheckUser = document.getElementById("ageCheckUser").innerHTML;
+  var ageCheckUser = document.getElementById('ageCheckUser').innerHTML;
 
-  //Cookie key constants
-  var ageCheckDisplayedKey = "ageCheckDisplayed"+ageCheckUser;
+  //Cookie key 'constants'
+  var ageCheckDisplayedKey = 'ageCheckDisplayed'+ageCheckUser;
+  var defaultOptions = {
+    delay: 28,
+    session: false
+  }
 
   //Constant for Expiry date in days
   var ageCheckDisplayedExpiryDays = 28;
@@ -44,10 +48,10 @@
 
   //Create Cookie for fixed period
   function CreateCookieFixed(name,value,options) {
-    option.delay < 1 ? options.delay = 1 : null;
+    options.delay < 1 ? options.delay = 1 : null;
     var date = new Date();
     date.setDate(date.getDate() + options.delay);
-    var expires = '; expires' + date + '; path=/';
+    var expires = '; expires=' + date + '; path=/';
 
     document.cookie = name + '=' + value + expires;
   }
@@ -58,7 +62,7 @@
 
   //Read Cookie
   function ReadCookie(name) {
-    var nameEquals = name + "=";
+    var nameEquals = name + '=';
     var ca = document.cookie.split(';');
 
     for(var i=0; i < ca.length; i++) {
@@ -73,24 +77,25 @@
     return ReadCookie(ageCheckDisplayedKey) != null;
   }
 
-  function setAgeCheckDisplayed() {
+  function setAgeCheckDisplayed(options) {
     var isDisplayed = true;
-    options.session == null || options.sesson === fasle ?
+    options.session == null || options.session === false ?
     CreateCookieFixed(ageCheckDisplayedKey, isDisplayed, options) :
-    CreateCookieSession(ageCheckDisplayedKey, isDisplayed)
+    CreateCookieSession(ageCheckDisplayedKey, isDisplayed);
   }
 
   function setDisplayed() {
-    setAgeCheckDisplayed();
+    setAgeCheckDisplayed(options);
     acModal.style.display = 'none';
   }
 
-  function ageCheckDisplayedCheck(options) {
-    acModal.style.display = isAgeCheckDisplayed() ? "none" : "block";
+  function ageCheckDisplayedCheck(opts) {
+    options = Object.assign({}, defaultOptions, opts);
+    acModal.style.display = isAgeCheckDisplayed() ? 'none' : 'block';
   }
 
   function selectNo()  {
-    location.href = "http://www.google.co.uk";
+    location.href = "https://www.google.co.uk";
   }
 
   acYesBtn.addEventListener('click',  setDisplayed);
