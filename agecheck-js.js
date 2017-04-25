@@ -32,7 +32,8 @@
   var ageCheckDisplayedKey = 'ageCheckDisplayed'+ageCheckUser;
   var defaultOptions = {
     delay: 28,
-    session: false
+    session: false,
+    redirect: 'https://www.google.co.uk'
   }
 
   //Constant for Expiry date in days
@@ -89,16 +90,16 @@
     acModal.style.display = 'none';
   }
 
+  function selectNo()  {
+    location.href = options.redirect;
+  }
+
   function ageCheckDisplayedCheck(opts) {
     options = Object.assign({}, defaultOptions, opts);
     acModal.style.display = isAgeCheckDisplayed() ? 'none' : 'block';
   }
 
-  function selectNo()  {
-    location.href = "https://www.google.co.uk";
-  }
-
-  acYesBtn.addEventListener('click',  setDisplayed);
+  acYesBtn.addEventListener('click', setDisplayed);
   acNoBtn.addEventListener('click', selectNo);
 
   window.ekmAgeCheck = {
