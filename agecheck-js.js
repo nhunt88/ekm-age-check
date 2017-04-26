@@ -1,10 +1,40 @@
 (function () {
 
-  //Find site username
-  var ageCheckUser = document.getElementById("ageCheckUser").innerHTML;
+  if (typeof Object.assign != 'function') {
+    Object.assign = function(target, varArgs) { // .length of function is 2
+      'use strict';
+      if (target == null) { // TypeError if undefined or null
+        throw new TypeError('Cannot convert undefined or null to object');
+      }
 
-  //Cookie key constants
-  var ageCheckDisplayedKey = "ageCheckDisplayed"+ageCheckUser;
+      var to = Object(target);
+
+      for (var index = 1; index < arguments.length; index++) {
+        var nextSource = arguments[index];
+
+        if (nextSource != null) { // Skip over if undefined or null
+          for (var nextKey in nextSource) {
+            // Avoid bugs when hasOwnProperty is shadowed
+            if (Object.prototype.hasOwnProperty.call(nextSource, nextKey)) {
+              to[nextKey] = nextSource[nextKey];
+            }
+          }
+        }
+      }
+      return to;
+    };
+  }
+
+  //Find site username
+  var ageCheckUser = document.getElementById('ageCheckUser').innerHTML;
+
+  //Cookie key 'constants'
+  var ageCheckDisplayedKey = 'ageCheckDisplayed'+ageCheckUser;
+  var defaultOptions = {
+    delay: 28,
+    session: false,
+    redirect: 'https://www.google.co.uk'
+  }
 
   //Constant for Expiry date in days
   var ageCheckDisplayedExpiryDays = 28;
@@ -15,19 +45,25 @@
   var acYesBtn = document.getElementById('acYesBtn');
   var acNoBtn = document.getElementById('acNoBtn');
 
+  var options = Object.assign({}, defaultOptions);
 
-  //Create Cookie
-  function CreateCookie(name,value,days) {
-    var date= new Date();
-    date.setDate(date.getDate()+days);
-    var expires = "; expires="+date+"; path=/";
+  //Create Cookie for fixed period
+  function CreateCookieFixed(name,value,options) {
+    options.delay < 1 ? options.delay = 1 : null;
+    var date = new Date();
+    date.setDate(date.getDate() + options.delay);
+    var expires = '; expires=' + date + '; path=/';
 
-    document.cookie = name+"="+value+expires;
+    document.cookie = name + '=' + value + expires;
+  }
+
+  function CreateCookieSession(name, value) {
+    document.cookie = name + '=' + value + ';';
   }
 
   //Read Cookie
   function ReadCookie(name) {
-    var nameEquals = name + "=";
+    var nameEquals = name + '=';
     var ca = document.cookie.split(';');
 
     for(var i=0; i < ca.length; i++) {
@@ -42,29 +78,32 @@
     return ReadCookie(ageCheckDisplayedKey) != null;
   }
 
-  function setAgeCheckDisplayed(val) {
-    var isDisplayed = val == null ? true : val;
-    CreateCookie(ageCheckDisplayedKey, isDisplayed, ageCheckDisplayedExpiryDays);
+  function setAgeCheckDisplayed(options) {
+    var isDisplayed = true;
+    options.session == null || options.session === false ?
+    CreateCookieFixed(ageCheckDisplayedKey, isDisplayed, options) :
+    CreateCookieSession(ageCheckDisplayedKey, isDisplayed);
   }
 
-
   function setDisplayed() {
-    setAgeCheckDisplayed();
+    setAgeCheckDisplayed(options);
     acModal.style.display = 'none';
   }
 
-  function ageCheckDisplayedCheck(options) {
-    acModal.style.display = isAgeCheckDisplayed() ? "none" : "block";
+  function selectNo()  {
+    location.href = options.redirect;
   }
 
-  acYesBtn.onclick = function() {
-    setDisplayed();
+  function ageCheckDisplayedCheck(opts) {
+    options = Object.assign({}, defaultOptions, opts);
+    acModal.style.display = isAgeCheckDisplayed() ? 'none' : 'block';
   }
 
-  acNoBtn.onclick = function() {
-    location.href = "http://www.google.co.uk";
-  }
+  acYesBtn.addEventListener('click', setDisplayed);
+  acNoBtn.addEventListener('click', selectNo);
 
-  ageCheckDisplayedCheck();
+  window.ekmAgeCheck = {
+    check: ageCheckDisplayedCheck
+  };
 
 })();
