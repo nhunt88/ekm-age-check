@@ -1,7 +1,7 @@
 # ekm-age-check
 Age check modal for desktop and mobile sites
 
-Options can be set under the script tag in the HTML for the desktop and mobile themes, can now set whether cookies are stored for fixed lengths or time or are stored just for the session. If they are for fixed lengths, can set the number of days they are stored for. Can also now set set the redirct URL when a user clicks no on the modal as well.
+Options can be set under the script tag in the HTML for the desktop and mobile themes, can now set whether cookies are stored for fixed lengths or time or are stored just for the session. If they are for fixed lengths, can set the number of days they are stored for. Can also now set set the redirect URL when a user clicks no on the modal as well.
 
 session:
 
