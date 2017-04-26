@@ -36,10 +36,6 @@
     redirect: 'https://www.google.co.uk'
   }
 
-  //Constant for Expiry date in days
-  var ageCheckDisplayedExpiryDays = 28;
-
-
   //Element references
   var acModal = document.getElementById('acModal');
   var acYesBtn = document.getElementById('acYesBtn');
